@@ -2,7 +2,7 @@ var web3js = require('../../utils/ethereum');
 
 var web3 = web3js.getWeb3();
 
-// exercice 4: modify the contract and call a view method.
+// Exercice 4: modify the contract and call a view method.
 
 // First, we have to create an instance of contract using the address of the contract deployed in the exercice 3
 
@@ -38,7 +38,7 @@ var myContract = new web3.eth.Contract([
 	"0x42e8ee3BB55Ce55B676CDD2C3697A9C11419e4A4"
 );
 
-// let's call the method get to see the value of storedValue
+// Let's call the method "get" to see the value of storedValue
 
 myContract.methods.get().call().then((response) => {
 
@@ -58,13 +58,13 @@ myContract.methods.get().call().then((response) => {
       }, '0x3CAA80A698AE22E8B9265C2BE6F8C9D8E59C0EDE451FB1F3CA6CA3BDD24F938B'
     ).then((response) => {
 
-      //when the transaction is signed, it is ready to be sent
+      // When the transaction is signed, it is ready to be sent
 
       console.log(response);
       web3.eth.sendSignedTransaction(response.rawTransaction)
       .on('receipt', (receipt) => {
 
-        // this event is received when the transaction is mined
+        // This event is received when the transaction is mined
           
         console.log(receipt);
         
